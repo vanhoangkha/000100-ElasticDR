@@ -1,5 +1,5 @@
 ---
-title : "Configure DRS Agent IAM User"
+title : "Configure DRS Agent"
 date : "`r Sys.Date()`"
 weight : 5
 chapter : false

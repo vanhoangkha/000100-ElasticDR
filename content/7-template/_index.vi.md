@@ -1,5 +1,5 @@
 ---
-title : "Cấu hình EC2 Launch Template "
+title : "Cấu hình Launch Template "
 date :  "`r Sys.Date()`" 
 weight : 7
 chapter : false

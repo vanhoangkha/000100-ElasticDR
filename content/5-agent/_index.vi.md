@@ -1,5 +1,5 @@
 ---
-title : "Thực hiện cấu hình DRS Agent IAM User"
+title : "Cấu hình DRS Agent"
 date :  "`r Sys.Date()`" 
 weight : 5
 chapter : false

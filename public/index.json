@@ -43,7 +43,7 @@
 },
 {
 	"uri": "/5-agent/",
-	"title": "Configure DRS Agent IAM User",
+	"title": "Configure DRS Agent",
 	"tags": [],
 	"description": "",
 	"content": "Configure DRS Agent IAM User To do this, we will create an IAM User\n  Access the AWS Management Console interface\n Find IAM Select IAM    In the AWS IAM interface   Select User Select Add user   Create user with the name drs-agent-user\n Then, select Next:Permission     For Set Permissions\n Select Attach existing policies directly Find and select AWSElasticDisasterRecoveryAgentInstallationPolicy Select Next:Tags    Select Next:Review  Select Create user  We will download Download.csv to save Access Key information for the next steps.  "

@@ -43,7 +43,7 @@
 },
 {
 	"uri": "/vi/5-agent/",
-	"title": "Thực hiện cấu hình DRS Agent IAM User",
+	"title": "Cấu hình DRS Agent",
 	"tags": [],
 	"description": "",
 	"content": "Thực hiện cấu hình DRS Agent IAM User Để thực hiện phần này, chúng ta sẽ tạo một IAM User\n  Truy cập vào giao diện AWS Management Console\n Tìm IAM Chọn IAM    Trong giao diện AWS IAM   Chọn User Chọn Add user   Thực hiện tạo user với tên drs-agent-user\n Sau đó, chọn Next:Permission     Đối với Set Permissions\n Chọn Attach existing policies directly Tìm và chọn AWSElasticDisasterRecoveryAgentInstallationPolicy Chọn Next:Tags    Chọn Next:Review  Chọn Create user  Chúng ta sẽ tải Download.csv để thực hiện lưu thông tin Access Key cho các bước tiếp theo.  "
@@ -57,7 +57,7 @@
 },
 {
 	"uri": "/vi/7-template/",
-	"title": "Cấu hình EC2 Launch Template ",
+	"title": "Cấu hình Launch Template ",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình EC2 Launch Template   Trong giao diện DRS\n Chọn Source Servers Chọn một source     Trong giao diện source server\n Chọn Launch settings    Đối với Launch Setting, chọn None  Kiểm tra lại, ta sẽ thấy Instance type right sizing là Off  Thực hiện cấu hình EC2 Launch template  Đối với Template version description nhập WorkshopTemplate  Đối với Instance type, chọn t3.small   Đối với Network Settings, chọn Target Private cho Subnet\n Đối với existing security group, chọn TargetSecurityGroup     Về phần cấu hình Configure Storage\n Chọn Volume type là gp3    Chọn Create template version  Tạo template version thành công.  Chi tiết các template.  "
