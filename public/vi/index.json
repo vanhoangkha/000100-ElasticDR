@@ -4,77 +4,77 @@
 	"title": "AWS Elastic Disaster Recovery Workshop",
 	"tags": [],
 	"description": "",
-	"content": "AWS Elastic Disaster Recovery Workshop AWS Elastic Disaster Recovery (AWS DRS) giúp giảm thiểu thời gian ngừng hoạt động và mất dữ liệu nhờ khả năng phục hồi các ứng dụng tại chỗ và trên đám mây một cách nhanh chóng, đáng tin cậy bằng cách sử dụng kho lưu trữ có mức chi phí hợp lý, tài nguyên điện toán tối thiểu và phục hồi về một thời điểm.\nBài lab này thực hiện mô phỏng một môi trường tại chỗ cho phép khách hàng thực hiện sao chép khôi phục sau thảm họa sang AWS.\nMôi trường mô phỏng được hỗ trợ bởi các Amazon EC2 instance và được định cấu hình theo cách phù hợp với nhiều môi trường của khách hàng. Network bao gồm các private subnet và public, dịch vụ DNS, các ứng dụng được cài đặt sẵn và một máy chủ bastion host Windows.\nHình ảnh bên dưới là sơ đồ mạng cơ bản cho dịch vụ AWS Elastic Disaster Recovery (thường được gọi là DRS). Môi trường mô phỏng phù hợp với các yêu cầu dịch vụ.\nKiến ​​thức cơ bản Đây là Lab được tạo ra cho Kiến trúc sư Giải pháp, SysOps, ServerOps, InfraOps và các chuyên gia khác.\nĐể tận dụng tối đa lab này, bạn phải nắm rõ những điều sau:\n Kết nối với máy chủ Microsoft Windows bằng Remote Desktop Protocol (RDP) Kết nối với máy chủ Linux bằng SSH  Nội dung chính:  Giới thiệu Các bước chuẩn bị Kết nối Bastion Host Cấu hình DRS Cấu hình DRS IAM user Cài đặt Agent EC2 Launch Template Failing Over Dọn dẹp tài nguyên  "
+	"content": "AWS Elastic Disaster Recovery Workshop AWS Elastic Disaster Recovery (AWS DRS) giúp giảm thiểu thời gian ngừng hoạt động và mất dữ liệu nhờ khả năng phục hồi các ứng dụng tại chỗ và trên đám mây một cách nhanh chóng, đáng tin cậy bằng cách sử dụng kho lưu trữ có mức chi phí hợp lý, tài nguyên điện toán tối thiểu và phục hồi về một thời điểm.\nBài lab này thực hiện mô phỏng một môi trường tại chỗ cho phép khách hàng thực hiện sao chép khôi phục sau thảm họa sang AWS.\nMôi trường mô phỏng được hỗ trợ bởi các Amazon EC2 instance và được định cấu hình theo cách phù hợp với nhiều môi trường của khách hàng. Network bao gồm các private subnet và public, dịch vụ DNS, các ứng dụng được cài đặt sẵn và một máy chủ bastion host Windows.\nHình ảnh bên dưới là sơ đồ mạng cơ bản cho dịch vụ AWS Elastic Disaster Recovery (thường được gọi là DRS). Môi trường mô phỏng phù hợp với các yêu cầu dịch vụ.\nKiến ​​thức cơ bản Đây là Lab được tạo ra cho Kiến trúc sư Giải pháp, SysOps, ServerOps, InfraOps và các chuyên gia khác.\nĐể tận dụng tối đa lab này, bạn phải nắm rõ những điều sau:\nKết nối với máy chủ Microsoft Windows bằng Remote Desktop Protocol (RDP) Kết nối với máy chủ Linux bằng SSH Nội dung chính: Giới thiệu Các bước chuẩn bị Kết nối Bastion Host Cấu hình DRS Cấu hình DRS IAM user Cài đặt Agent EC2 Launch Template Failing Over Dọn dẹp tài nguyên "
 },
 {
 	"uri": "/vi/2-prerequiste/2.1-infras/",
 	"title": "Chuẩn bị hạ tầng",
 	"tags": [],
 	"description": "",
-	"content": "Chuẩn bị hạ tầng   Trong bài này chúng ta sẽ thực hiện bài lab trong Region US West (Oregon) us-west-2\n  Trong phần này, chúng ta sẽ chuẩn bị các tài nguyên cho bài lab bằng cách khởi tạo CloudFormation template.\n  Bạn tải CloudFormation template tại đây\n    Truy cập vào giao diện CloudFormation\n Chọn Create stack     Trong giao diện Create stack\n Chọn Template is ready Chọn Upload a template file Chọn Next     Đối với Stack name\n Nhập EDRW Đối với các thông số khác sử dụng mặc định.    Chọn Next  Chọn Next  Thực hiện chọn các require capabilities, sau đó chọn Create stack  Khoảng 30 phút sau, chúng ta sẽ quan sát giao diện và tạo thành công 5 stack.  Xem Outputs của stack, chúng ta sẽ thấy tạo ra một BastionRDP dùng để kết nối.  "
+	"content": "Chuẩn bị hạ tầng Trong bài này chúng ta sẽ thực hiện bài lab trong Region US West (Oregon) us-west-2\nTrong phần này, chúng ta sẽ chuẩn bị các tài nguyên cho bài lab bằng cách khởi tạo CloudFormation template.\nBạn tải CloudFormation template tại đây\nTruy cập vào giao diện CloudFormation\nChọn Create stack Trong giao diện Create stack\nChọn Template is ready Chọn Upload a template file Chọn Next Đối với Stack name\nNhập EDRW Đối với các thông số khác sử dụng mặc định. Chọn Next Chọn Next Thực hiện chọn các require capabilities, sau đó chọn Create stack Khoảng 30 phút sau, chúng ta sẽ quan sát giao diện và tạo thành công 5 stack. Xem Outputs của stack, chúng ta sẽ thấy tạo ra một BastionRDP dùng để kết nối. "
 },
 {
 	"uri": "/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
-	"content": "Tổng quan AWS Elastic Disaster Recovery (AWS DRS) giúp giảm thiểu thời gian ngừng hoạt động và mất dữ liệu nhờ khả năng phục hồi các ứng dụng tại chỗ và trên đám mây một cách nhanh chóng, đáng tin cậy bằng cách sử dụng kho lưu trữ có mức chi phí hợp lý, tài nguyên điện toán tối thiểu và phục hồi về một thời điểm.\nBài lab này thực hiện mô phỏng một môi trường tại chỗ cho phép khách hàng thực hiện sao chép khôi phục sau thảm họa sang AWS.\nMôi trường mô phỏng được hỗ trợ bởi các Amazon EC2 instance và được định cấu hình theo cách phù hợp với nhiều môi trường của khách hàng. Network bao gồm các private subnet và public, dịch vụ DNS, các ứng dụng được cài đặt sẵn và một máy chủ bastion host Windows.\nHình ảnh bên dưới là sơ đồ mạng cơ bản cho dịch vụ AWS Elastic Disaster Recovery (thường được gọi là DRS). Môi trường mô phỏng phù hợp với các yêu cầu dịch vụ.\nKiến ​​thức cơ bản Đây là Lab được tạo ra cho Kiến trúc sư Giải pháp, SysOps, ServerOps, InfraOps và các chuyên gia khác.\nĐể tận dụng tối đa lab này, bạn phải nắm rõ những điều sau:\n Kết nối với máy chủ Microsoft Windows bằng Remote Desktop Protocol (RDP) Kết nối với máy chủ Linux bằng SSH  "
+	"content": "Tổng quan AWS Elastic Disaster Recovery (AWS DRS) giúp giảm thiểu thời gian ngừng hoạt động và mất dữ liệu nhờ khả năng phục hồi các ứng dụng tại chỗ và trên đám mây một cách nhanh chóng, đáng tin cậy bằng cách sử dụng kho lưu trữ có mức chi phí hợp lý, tài nguyên điện toán tối thiểu và phục hồi về một thời điểm.\nBài lab này thực hiện mô phỏng một môi trường tại chỗ cho phép khách hàng thực hiện sao chép khôi phục sau thảm họa sang AWS.\nMôi trường mô phỏng được hỗ trợ bởi các Amazon EC2 instance và được định cấu hình theo cách phù hợp với nhiều môi trường của khách hàng. Network bao gồm các private subnet và public, dịch vụ DNS, các ứng dụng được cài đặt sẵn và một máy chủ bastion host Windows.\nHình ảnh bên dưới là sơ đồ mạng cơ bản cho dịch vụ AWS Elastic Disaster Recovery (thường được gọi là DRS). Môi trường mô phỏng phù hợp với các yêu cầu dịch vụ.\nKiến ​​thức cơ bản Đây là Lab được tạo ra cho Kiến trúc sư Giải pháp, SysOps, ServerOps, InfraOps và các chuyên gia khác.\nĐể tận dụng tối đa lab này, bạn phải nắm rõ những điều sau:\nKết nối với máy chủ Microsoft Windows bằng Remote Desktop Protocol (RDP) Kết nối với máy chủ Linux bằng SSH "
 },
 {
 	"uri": "/vi/2-prerequiste/",
 	"title": "Các bước chuẩn bị",
 	"tags": [],
 	"description": "",
-	"content": "Các bước chuẩn bị  Chuẩn bị hạ tầng  "
+	"content": "Các bước chuẩn bị Chuẩn bị hạ tầng "
 },
 {
 	"uri": "/vi/3-connect/",
 	"title": "Kết nối đến Bastion Host",
 	"tags": [],
 	"description": "",
-	"content": "Kết nối đến Bastion Host  Để kết nối đến Windows Remote Desktop server, chúng ta có thể sử dụng một số công cụ, phần mềm hỗ trợ kết nối.   Đối với Windows: sử dụng Remote Desktop Connection Đối với MacOS: sử dụng Remote Desktop 10 Đối với Linux: sử dụng Remmina  Đối với phần Credentials, chúng ta sẽ sử dụng:\nBastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword = SshPass1   Chúng ta truy cập vào giao diện EC2\n Chọn MID-Bastion instance Chọn Connect     Để kết nối, chúng ta sẽ chọn RDP client\n Chọn Connection type* là Connect using RDP client Chọn Download remote desktop file     Sau khi tải về máy, bạn chọn Remote Desktop Connection\n Chọn Connect    Thực hiện điền password  Chọn Yes để kết nối  Hoàn thành kết nối.  "
+	"content": "Kết nối đến Bastion Host Để kết nối đến Windows Remote Desktop server, chúng ta có thể sử dụng một số công cụ, phần mềm hỗ trợ kết nối. Đối với Windows: sử dụng Remote Desktop Connection Đối với MacOS: sử dụng Remote Desktop 10 Đối với Linux: sử dụng Remmina Đối với phần Credentials, chúng ta sẽ sử dụng:\nBastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword = SshPass1 Chúng ta truy cập vào giao diện EC2\nChọn MID-Bastion instance Chọn Connect Để kết nối, chúng ta sẽ chọn RDP client\nChọn Connection type* là Connect using RDP client Chọn Download remote desktop file Sau khi tải về máy, bạn chọn Remote Desktop Connection\nChọn Connect Thực hiện điền password Chọn Yes để kết nối Hoàn thành kết nối. "
 },
 {
 	"uri": "/vi/4-drs/",
 	"title": "Thực hiện cấu hình DRS",
 	"tags": [],
 	"description": "",
-	"content": "Thực hiện cấu hình DRS Trong phần này, chúng ta sẽ thực hiện cấu hình AWS Elastic Disaster Recovery (DRS).\n Truy cập vào AWS Management Console  Tìm DRS Chọn AWS Elastic Disaster Recovery    Bước đầu tiên, chúng ta sẽ chọn Set default replication settings   Trong giao diện Edit default replication settings\n Chọn CloudEndure Staging đối với Staging area subnet Đối với Replication server instance type, chọn t3.small.     Đối với Security group\n Ta sẽ để giá trị mặc định.    Kiểm tra lại và chọn Save changes  "
+	"content": "Thực hiện cấu hình DRS Trong phần này, chúng ta sẽ thực hiện cấu hình AWS Elastic Disaster Recovery (DRS).\nTruy cập vào AWS Management Console Tìm DRS Chọn AWS Elastic Disaster Recovery Bước đầu tiên, chúng ta sẽ chọn Set default replication settings Trong giao diện Edit default replication settings\nChọn CloudEndure Staging đối với Staging area subnet Đối với Replication server instance type, chọn t3.small. Đối với Security group\nTa sẽ để giá trị mặc định. Kiểm tra lại và chọn Save changes "
 },
 {
 	"uri": "/vi/5-agent/",
 	"title": "Cấu hình DRS Agent",
 	"tags": [],
 	"description": "",
-	"content": "Thực hiện cấu hình DRS Agent IAM User Để thực hiện phần này, chúng ta sẽ tạo một IAM User\n  Truy cập vào giao diện AWS Management Console\n Tìm IAM Chọn IAM    Trong giao diện AWS IAM   Chọn User Chọn Add user   Thực hiện tạo user với tên drs-agent-user\n Sau đó, chọn Next:Permission     Đối với Set Permissions\n Chọn Attach existing policies directly Tìm và chọn AWSElasticDisasterRecoveryAgentInstallationPolicy Chọn Next:Tags    Chọn Next:Review  Chọn Create user  Chúng ta sẽ tải Download.csv để thực hiện lưu thông tin Access Key cho các bước tiếp theo.  "
+	"content": "Thực hiện cấu hình DRS Agent IAM User Để thực hiện phần này, chúng ta sẽ tạo một IAM User\nTruy cập vào giao diện AWS Management Console\nTìm IAM Chọn IAM Trong giao diện AWS IAM Chọn User Chọn Add user Thực hiện tạo user với tên drs-agent-user\nSau đó, chọn Next:Permission Đối với Set Permissions\nChọn Attach existing policies directly Tìm và chọn AWSElasticDisasterRecoveryAgentInstallationPolicy Chọn Next:Tags Chọn Next:Review Chọn Create user Chúng ta sẽ tải Download.csv để thực hiện lưu thông tin Access Key cho các bước tiếp theo. "
 },
 {
 	"uri": "/vi/6-install/",
 	"title": "Cài đặt Agent ",
 	"tags": [],
 	"description": "",
-	"content": "Cài đặt Agent   Trong giao diện Bastion Host\n Chọn Putty Chọn wordpress-web Chọn Open    Chúng ta sẽ thực hiện đăng nhập với password như phần kết nối  Bastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword = SshPass1 Đăng nhập thành công.  Sau khi đăng nhập thành công, chúng ta sẽ thực hiện cài đặt Agent  wget -O ./aws-replication-installer-init.py https://aws-elastic-disaster-recovery-us-west-2.s3.amazonaws.com/latest/linux/aws-replication-installer-init.py  Sau đó, chúng ta sẽ thực hiện lệnh  sudo python3 aws-replication-installer-init.py  Thực hiện cấu hình\n AWS Region Name AWS Access Key ID AWS Secret Access Key Đối với Choose the disks you want to replicate, chọn Enter    Chúng ta sẽ thực hiện các bước tương tự đối với phần database server.  Trở lại trang DRS source server xem quá trình initial sync   Cả 2 DRS source server\n Create security groups Launch replication server Boot replication server Authenticate with service Download replication software Create staging disks Attach staging disks Pair replication server with Agent Connect agent with replication server Start data transfer    Chúng ta sẽ chọn 1 DRS source server để xem chi tiết.  Bạn sẽ phải đợi khoảng 10 phút, khi hoàn thành 100%  Sau đó khoảng 1 phút, bạn sẽ quan sát thấy trạng thái Reaady for recovery là Ready và Data replicatio status là Healthy  "
+	"content": "Cài đặt Agent Trong giao diện Bastion Host\nChọn Putty Chọn wordpress-web Chọn Open Chúng ta sẽ thực hiện đăng nhập với password như phần kết nối Bastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword = SshPass1 Đăng nhập thành công. Sau khi đăng nhập thành công, chúng ta sẽ thực hiện cài đặt Agent wget -O ./aws-replication-installer-init.py https://aws-elastic-disaster-recovery-us-west-2.s3.amazonaws.com/latest/linux/aws-replication-installer-init.py Sau đó, chúng ta sẽ thực hiện lệnh sudo python3 aws-replication-installer-init.py Thực hiện cấu hình\nAWS Region Name AWS Access Key ID AWS Secret Access Key Đối với Choose the disks you want to replicate, chọn Enter Chúng ta sẽ thực hiện các bước tương tự đối với phần database server. Trở lại trang DRS source server xem quá trình initial sync Cả 2 DRS source server\nCreate security groups Launch replication server Boot replication server Authenticate with service Download replication software Create staging disks Attach staging disks Pair replication server with Agent Connect agent with replication server Start data transfer Chúng ta sẽ chọn 1 DRS source server để xem chi tiết. Bạn sẽ phải đợi khoảng 10 phút, khi hoàn thành 100% Sau đó khoảng 1 phút, bạn sẽ quan sát thấy trạng thái Reaady for recovery là Ready và Data replicatio status là Healthy "
 },
 {
 	"uri": "/vi/7-template/",
 	"title": "Cấu hình Launch Template ",
 	"tags": [],
 	"description": "",
-	"content": "Cấu hình EC2 Launch Template   Trong giao diện DRS\n Chọn Source Servers Chọn một source     Trong giao diện source server\n Chọn Launch settings    Đối với Launch Setting, chọn None  Kiểm tra lại, ta sẽ thấy Instance type right sizing là Off  Thực hiện cấu hình EC2 Launch template  Đối với Template version description nhập WorkshopTemplate  Đối với Instance type, chọn t3.small   Đối với Network Settings, chọn Target Private cho Subnet\n Đối với existing security group, chọn TargetSecurityGroup     Về phần cấu hình Configure Storage\n Chọn Volume type là gp3    Chọn Create template version  Tạo template version thành công.  Chi tiết các template.  "
+	"content": "Cấu hình EC2 Launch Template Trong giao diện DRS\nChọn Source Servers Chọn một source Trong giao diện source server\nChọn Launch settings Đối với Launch Setting, chọn None Kiểm tra lại, ta sẽ thấy Instance type right sizing là Off Thực hiện cấu hình EC2 Launch template Đối với Template version description nhập WorkshopTemplate Đối với Instance type, chọn t3.small Đối với Network Settings, chọn Target Private cho Subnet\nĐối với existing security group, chọn TargetSecurityGroup Về phần cấu hình Configure Storage\nChọn Volume type là gp3 Chọn Create template version Tạo template version thành công. Chi tiết các template. "
 },
 {
 	"uri": "/vi/8-fo/",
 	"title": "Failing Over",
 	"tags": [],
 	"description": "",
-	"content": "Failing Over   Truy cập vào trang DRS\n Chúng ta sẽ thấy có 2 Hostname Chọn 1 hostname     Tiếp theo\n Chọn Initiate recovery job Chọn Initiate drill    Đối với Points in time chọn Use most recent data  Chọn Initiate drill   Vào giao diện DRS, chọn Recovery job history\n Xem Job log của Hostname web    Xem Job log của Hostname database.  '\nVào giao diện EC2, bạn sẽ thấy có 2 instance về wordpress-db-onpremsim.env và wordpress-db.onpremsim.env  "
+	"content": "Failing Over Truy cập vào trang DRS\nChúng ta sẽ thấy có 2 Hostname Chọn 1 hostname Tiếp theo\nChọn Initiate recovery job Chọn Initiate drill Đối với Points in time chọn Use most recent data Chọn Initiate drill Vào giao diện DRS, chọn Recovery job history\nXem Job log của Hostname web Xem Job log của Hostname database. '\nVào giao diện EC2, bạn sẽ thấy có 2 instance về wordpress-db-onpremsim.env và wordpress-db.onpremsim.env "
 },
 {
 	"uri": "/vi/9-cleanup/",
 	"title": "Dọn dẹp tài nguyên",
 	"tags": [],
 	"description": "",
-	"content": "Dọn dẹp tài nguyên   Truy cập vào CloudFormation\n Chọn stack Chọn Delete    Chọn Delete stack  "
+	"content": "Dọn dẹp tài nguyên Truy cập vào CloudFormation\nChọn stack Chọn Delete Chọn Delete stack "
 },
 {
 	"uri": "/vi/categories/",

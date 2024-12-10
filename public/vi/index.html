@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>AWS Elastic Disaster Recovery Workshop :: AWS Elastic Disaster Recovery Workshop</title>
 
     
-    <link href="/css/nucleus.css?1668994733" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1668994733" rel="stylesheet">
-    <link href="/css/hybrid.css?1668994733" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1668994733" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1668994733" rel="stylesheet">
-    <link href="/css/auto-complete.css?1668994733" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1668994733" rel="stylesheet">
-    <link href="/css/theme.css?1668994733" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1668994733" rel="stylesheet">
+    <link href="/css/nucleus.css?1733820173" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733820173" rel="stylesheet">
+    <link href="/css/hybrid.css?1733820173" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733820173" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733820173" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733820173" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733820173" rel="stylesheet">
+    <link href="/css/theme.css?1733820173" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733820173" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1668994733" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733820173" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1668994733"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733820173"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1668994733"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1668994733"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733820173"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733820173"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1668994733"></script>
+<script type="text/javascript" src="/js/search.js?1733820173"></script>
 
     
   </div>
@@ -439,7 +439,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>21-11-2022</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -478,11 +478,11 @@
  
 <h1 id="aws-elastic-disaster-recovery-workshop">AWS Elastic Disaster Recovery Workshop</h1>
 <p>AWS Elastic Disaster Recovery (AWS DRS) giúp giảm thiểu thời gian ngừng hoạt động và mất dữ liệu nhờ khả năng phục hồi các ứng dụng tại chỗ và trên đám mây một cách nhanh chóng, đáng tin cậy bằng cách sử dụng kho lưu trữ có mức chi phí hợp lý, tài nguyên điện toán tối thiểu và phục hồi về một thời điểm.</p>
-<p><img src="/images/1/0001.png?featherlight=false&amp;width=60pc" alt="AWS Elastic Disaster Recovery Workshop"></p>
+<p><img alt="AWS Elastic Disaster Recovery Workshop" src="/images/1/0001.png?featherlight=false&width=60pc"></p>
 <p>Bài lab này thực hiện mô phỏng một môi trường tại chỗ cho phép khách hàng thực hiện sao chép khôi phục sau thảm họa sang AWS.</p>
 <p>Môi trường mô phỏng được hỗ trợ bởi các  Amazon EC2  instance và được định cấu hình theo cách phù hợp với nhiều môi trường của khách hàng. Network bao gồm các private subnet và public, dịch vụ DNS, các ứng dụng được cài đặt sẵn và một máy chủ bastion host Windows.</p>
 <p>Hình ảnh bên dưới là sơ đồ mạng cơ bản cho dịch vụ AWS Elastic Disaster Recovery (thường được gọi là DRS). Môi trường mô phỏng phù hợp với các yêu cầu dịch vụ.</p>
-<p><img src="/images/1/0002.png?featherlight=false&amp;width=60pc" alt="AWS Elastic Disaster Recovery Workshop"></p>
+<p><img alt="AWS Elastic Disaster Recovery Workshop" src="/images/1/0002.png?featherlight=false&width=60pc"></p>
 <h4 id="kiến-thức-cơ-bản">Kiến ​​thức cơ bản</h4>
 <p>Đây là Lab được tạo ra cho Kiến trúc sư Giải pháp, SysOps, ServerOps, InfraOps và các chuyên gia khác.</p>
 <p>Để tận dụng tối đa lab này, bạn phải nắm rõ những điều sau:</p>
@@ -490,18 +490,18 @@
 <li>Kết nối với máy chủ Microsoft Windows bằng Remote Desktop Protocol (RDP)</li>
 <li>Kết nối với máy chủ Linux bằng SSH</li>
 </ul>
-<p><img src="/images/1/0005.png?featherlight=false&amp;width=60pc" alt="AWS Elastic Disaster Recovery Workshop"></p>
+<p><img alt="AWS Elastic Disaster Recovery Workshop" src="/images/1/0005.png?featherlight=false&width=60pc"></p>
 <h4 id="nội-dung-chính">Nội dung chính:</h4>
 <ol>
-<li><a href="1-introduce/">Giới thiệu</a></li>
-<li><a href="2-prerequiste/">Các bước chuẩn bị</a></li>
-<li><a href="3-connect/">Kết nối Bastion Host</a></li>
-<li><a href="4-drs/">Cấu hình DRS</a></li>
-<li><a href="5-agent/">Cấu hình DRS IAM user</a></li>
-<li><a href="6-install/">Cài đặt Agent</a></li>
-<li><a href="7-template/">EC2 Launch Template</a></li>
-<li><a href="8-fo/">Failing Over</a></li>
-<li><a href="9-cleanup/">Dọn dẹp tài nguyên</a></li>
+<li><a href="/vi/1-introduce/">Giới thiệu</a></li>
+<li><a href="/vi/2-prerequiste/">Các bước chuẩn bị</a></li>
+<li><a href="/vi/3-connect/">Kết nối Bastion Host</a></li>
+<li><a href="/vi/4-drs/">Cấu hình DRS</a></li>
+<li><a href="/vi/5-agent/">Cấu hình DRS IAM user</a></li>
+<li><a href="/vi/6-install/">Cài đặt Agent</a></li>
+<li><a href="/vi/7-template/">EC2 Launch Template</a></li>
+<li><a href="/vi/8-fo/">Failing Over</a></li>
+<li><a href="/vi/9-cleanup/">Dọn dẹp tài nguyên</a></li>
 </ol>
 	
   
@@ -716,19 +716,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1668994733"></script>
-    <script src="/js/perfect-scrollbar.min.js?1668994733"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1668994733"></script>
-    <script src="/js/jquery.sticky.js?1668994733"></script>
-    <script src="/js/featherlight.min.js?1668994733"></script>
-    <script src="/js/highlight.pack.js?1668994733"></script>
+    <script src="/js/clipboard.min.js?1733820173"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733820173"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733820173"></script>
+    <script src="/js/jquery.sticky.js?1733820173"></script>
+    <script src="/js/featherlight.min.js?1733820173"></script>
+    <script src="/js/highlight.pack.js?1733820173"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1668994733"></script>
-    <script src="/js/learn.js?1668994733"></script>
-    <script src="/js/hugo-learn.js?1668994733"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733820173"></script>
+    <script src="/js/learn.js?1733820173"></script>
+    <script src="/js/hugo-learn.js?1733820173"></script>
 
-    <link href="/mermaid/mermaid.css?1668994733" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1668994733"></script>
+    <link href="/mermaid/mermaid.css?1733820173" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733820173"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

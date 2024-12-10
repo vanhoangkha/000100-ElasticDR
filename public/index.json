@@ -4,77 +4,77 @@
 	"title": "AWS Elastic Disaster Recovery Workshop",
 	"tags": [],
 	"description": "",
-	"content": "AWS Elastic Disaster Recovery Workshop AWS Elastic Disaster Recovery (AWS DRS) helps minimize downtime and data loss with the ability to quickly and reliably recover applications on-premises and in the cloud using available storage. Reasonable cost, minimal computing resources, and point-in-time recovery.\nThis lab simulates an on-premises environment that allows customers to replicate disaster recovery to AWS.\nThe simulation environment is supported by Amazon EC2 instances and configured in a way suitable for many customer environments. The network includes private and public subnets, a DNS service, pre-installed applications, and a Windows host bastion server.\nThe image below is a basic network diagram for the AWS Elastic Disaster Recovery service (DRS). The simulation environment matches the service requirements.\nBasic knowledge This is a lab for Solution Architects, SysOps, ServerOps, InfraOps, and other professionals.\nTo get the most out of this lab, you must be familiar with the following:\n Connect to Microsoft Windows server using Remote Desktop Protocol (RDP) Connect to Linux server using SSH  Main content:  Introduction Preparation steps Connect Bastion Host DRS Configuration Configuring DRS IAM user Install Agent EC2 Launch Template Failing Over Resource Cleanup  "
+	"content": "AWS Elastic Disaster Recovery Workshop AWS Elastic Disaster Recovery (AWS DRS) helps minimize downtime and data loss with the ability to quickly and reliably recover applications on-premises and in the cloud using available storage. Reasonable cost, minimal computing resources, and point-in-time recovery.\nThis lab simulates an on-premises environment that allows customers to replicate disaster recovery to AWS.\nThe simulation environment is supported by Amazon EC2 instances and configured in a way suitable for many customer environments. The network includes private and public subnets, a DNS service, pre-installed applications, and a Windows host bastion server.\nThe image below is a basic network diagram for the AWS Elastic Disaster Recovery service (DRS). The simulation environment matches the service requirements.\nBasic knowledge This is a lab for Solution Architects, SysOps, ServerOps, InfraOps, and other professionals.\nTo get the most out of this lab, you must be familiar with the following:\nConnect to Microsoft Windows server using Remote Desktop Protocol (RDP) Connect to Linux server using SSH Main content: Introduction Preparation steps Connect Bastion Host DRS Configuration Configuring DRS IAM user Install Agent EC2 Launch Template Failing Over Resource Cleanup "
 },
 {
 	"uri": "/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
-	"content": "Introduction AWS Elastic Disaster Recovery (AWS DRS) helps minimize downtime and data loss with the ability to quickly and reliably recover applications on-premises and in the cloud using available storage. Reasonable cost, minimal computing resources, and point-in-time recovery.\nThis lab simulates an on-premises environment that allows customers to replicate disaster recovery to AWS.\nThe simulation environment is supported by Amazon EC2 instances and configured in a way suitable for many customer environments. The network includes private and public subnets, a DNS service, pre-installed applications, and a Windows host bastion server.\nThe image below is a basic network diagram for the AWS Elastic Disaster Recovery service (DRS). The simulation environment matches the service requirements.\nBasic knowledge This is a lab for Solution Architects, SysOps, ServerOps, InfraOps, and other professionals.\nTo get the most out of this lab, you must be familiar with the following:\n Connect to Microsoft Windows server using Remote Desktop Protocol (RDP) Connect to Linux server using SSH  "
+	"content": "Introduction AWS Elastic Disaster Recovery (AWS DRS) helps minimize downtime and data loss with the ability to quickly and reliably recover applications on-premises and in the cloud using available storage. Reasonable cost, minimal computing resources, and point-in-time recovery.\nThis lab simulates an on-premises environment that allows customers to replicate disaster recovery to AWS.\nThe simulation environment is supported by Amazon EC2 instances and configured in a way suitable for many customer environments. The network includes private and public subnets, a DNS service, pre-installed applications, and a Windows host bastion server.\nThe image below is a basic network diagram for the AWS Elastic Disaster Recovery service (DRS). The simulation environment matches the service requirements.\nBasic knowledge This is a lab for Solution Architects, SysOps, ServerOps, InfraOps, and other professionals.\nTo get the most out of this lab, you must be familiar with the following:\nConnect to Microsoft Windows server using Remote Desktop Protocol (RDP) Connect to Linux server using SSH "
 },
 {
 	"uri": "/2-prerequiste/2.1-infras/",
 	"title": "Prepare the infrastructure",
 	"tags": [],
 	"description": "",
-	"content": "Prepare infrastructure   In this lesson, we will perform the lab in Region US West (Oregon) us-west-2\n  In this section, we will prepare the resources for the lab by instantiating the CloudFormation template.\n  You download CloudFormation template here here\n    Access the CloudFormation interface\n Select Create stack     In the Create stack interface\n Select Template is ready Select Upload a template file Select Next     For Stack name\n Enter EDRW For other parameters, use the default.    Select Next  Select Next  Make a selection of require capabilities, then select Create stack  About 30 minutes later, we will observe the interface and successfully create five stacks.  See Outputs of the stack. We will see if we create a BastionRDP used to connect.  "
+	"content": "Prepare infrastructure In this lesson, we will perform the lab in Region US West (Oregon) us-west-2\nIn this section, we will prepare the resources for the lab by instantiating the CloudFormation template.\nYou download CloudFormation template here here\nAccess the CloudFormation interface\nSelect Create stack In the Create stack interface\nSelect Template is ready Select Upload a template file Select Next For Stack name\nEnter EDRW For other parameters, use the default. Select Next Select Next Make a selection of require capabilities, then select Create stack About 30 minutes later, we will observe the interface and successfully create five stacks. See Outputs of the stack. We will see if we create a BastionRDP used to connect. "
 },
 {
 	"uri": "/2-prerequiste/",
 	"title": "Preparations",
 	"tags": [],
 	"description": "",
-	"content": "Preparations  Preparing the infrastructure  "
+	"content": "Preparations Preparing the infrastructure "
 },
 {
 	"uri": "/3-connect/",
 	"title": "Connect to the Bastion Host",
 	"tags": [],
 	"description": "",
-	"content": "Connect to Bastion Host  To connect to the Windows Remote Desktop server, we can use many tools and software to support the connection.   For Windows: use Remote Desktop Connection For MacOS: use Remote Desktop 10 For Linux: use Remmina  For the Credentials part, we will use:\nBastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword=SshPass1   We access the EC2 interface\n Select MID-Bastion instance Select Connect     To connect, we will choose RDP client\n Select Connection type* as Connect using RDP client Select Download remote desktop file     After downloading, select Remote Desktop Connection\n Select Connect    Fill in Password  Select Yes to connect  Complete the connection.  "
+	"content": "Connect to Bastion Host To connect to the Windows Remote Desktop server, we can use many tools and software to support the connection. For Windows: use Remote Desktop Connection For MacOS: use Remote Desktop 10 For Linux: use Remmina For the Credentials part, we will use:\nBastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword=SshPass1 We access the EC2 interface\nSelect MID-Bastion instance Select Connect To connect, we will choose RDP client\nSelect Connection type* as Connect using RDP client Select Download remote desktop file After downloading, select Remote Desktop Connection\nSelect Connect Fill in Password Select Yes to connect Complete the connection. "
 },
 {
 	"uri": "/4-drs/",
 	"title": "Configure DRS Settings",
 	"tags": [],
 	"description": "",
-	"content": "Perform DRS configuration This section will perform AWS Elastic Disaster Recovery (DRS) configuration.\n Go to AWS Management Console  Find DRS Select AWS Elastic Disaster Recovery    The First step, we will choose Set default replication settings   In the Edit default replication settings interface\n Select CloudEndure Staging for Staging area subnet For Replication server instance type, select t3.small.     For Security group\n We will leave the default value.    Check again and select Save changes  "
+	"content": "Perform DRS configuration This section will perform AWS Elastic Disaster Recovery (DRS) configuration.\nGo to AWS Management Console Find DRS Select AWS Elastic Disaster Recovery The First step, we will choose Set default replication settings In the Edit default replication settings interface\nSelect CloudEndure Staging for Staging area subnet For Replication server instance type, select t3.small. For Security group\nWe will leave the default value. Check again and select Save changes "
 },
 {
 	"uri": "/5-agent/",
 	"title": "Configure DRS Agent",
 	"tags": [],
 	"description": "",
-	"content": "Configure DRS Agent IAM User To do this, we will create an IAM User\n  Access the AWS Management Console interface\n Find IAM Select IAM    In the AWS IAM interface   Select User Select Add user   Create user with the name drs-agent-user\n Then, select Next:Permission     For Set Permissions\n Select Attach existing policies directly Find and select AWSElasticDisasterRecoveryAgentInstallationPolicy Select Next:Tags    Select Next:Review  Select Create user  We will download Download.csv to save Access Key information for the next steps.  "
+	"content": "Configure DRS Agent IAM User To do this, we will create an IAM User\nAccess the AWS Management Console interface\nFind IAM Select IAM In the AWS IAM interface Select User Select Add user Create user with the name drs-agent-user\nThen, select Next:Permission For Set Permissions\nSelect Attach existing policies directly Find and select AWSElasticDisasterRecoveryAgentInstallationPolicy Select Next:Tags Select Next:Review Select Create user We will download Download.csv to save Access Key information for the next steps. "
 },
 {
 	"uri": "/6-install/",
 	"title": "Installing the Agent",
 	"tags": [],
 	"description": "",
-	"content": "Install Agent   In the Bastion Host interface\n Select Putty Select wordpress-web Select Open    We will perform login with password as the connection part  Bastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword=SshPass1 Login successfully.  After successful login, we will install Agent  wget -O ./aws-replication-installer-init.py https://aws-elastic-disaster-recovery-us-west-2.s3.amazonaws.com/latest/linux/aws-replication-installer-init. py  Then, we will execute the command  sudo python3 aws-replication-installer-init.py  Make configuration\n AWS Region Name AWS Access Key ID AWS Secret Access Key For Choose the disks you want to replicate, select Enter    We will follow the same steps for the database server part.  Back to DRS source server page see initial sync process   Both DRS source servers\n Create security groups Launch replication server Boot replication server Authenticate with service Download replication software Create staging disks Attach staging disks Pair replication server with Agent Connect Agent with replication server Start data transfer    We will select 1 DRS source server to see the details.  You will have to wait about 10 minutes when 100% done  After about 1 minute, you will see Ready for recovery status as Ready and Data replication status as Healthy  "
+	"content": "Install Agent In the Bastion Host interface\nSelect Putty Select wordpress-web Select Open We will perform login with password as the connection part Bastion Host\ruser = Administrator\rpassword = Adm1nP@s\rLinux Hosts\rpassword=SshPass1 Login successfully. After successful login, we will install Agent wget -O ./aws-replication-installer-init.py https://aws-elastic-disaster-recovery-us-west-2.s3.amazonaws.com/latest/linux/aws-replication-installer-init. py Then, we will execute the command sudo python3 aws-replication-installer-init.py Make configuration\nAWS Region Name AWS Access Key ID AWS Secret Access Key For Choose the disks you want to replicate, select Enter We will follow the same steps for the database server part. Back to DRS source server page see initial sync process Both DRS source servers\nCreate security groups Launch replication server Boot replication server Authenticate with service Download replication software Create staging disks Attach staging disks Pair replication server with Agent Connect Agent with replication server Start data transfer We will select 1 DRS source server to see the details. You will have to wait about 10 minutes when 100% done After about 1 minute, you will see Ready for recovery status as Ready and Data replication status as Healthy "
 },
 {
 	"uri": "/7-template/",
 	"title": "Configure Launch Settings",
 	"tags": [],
 	"description": "",
-	"content": "Configure EC2 Launch Template   In the DRS interface\n Select Source Servers Choose a source     In the source server interface\n Select Launch settings    For Launch Setting, select None  Check again, we will see Instance type right sizing is Off  Configure EC2 Launch template  For Template version description enter WorkshopTemplate  For Instance type, select t3.small   For Network Settings, select Target Private for Subnet\n For existing security group, select TargetSecurityGroup     About the configuration Configure Storage\n Select Volume type as gp3    Select Create template version  Create a template version successfully.  Details of templates.  "
+	"content": "Configure EC2 Launch Template In the DRS interface\nSelect Source Servers Choose a source In the source server interface\nSelect Launch settings For Launch Setting, select None Check again, we will see Instance type right sizing is Off Configure EC2 Launch template For Template version description enter WorkshopTemplate For Instance type, select t3.small For Network Settings, select Target Private for Subnet\nFor existing security group, select TargetSecurityGroup About the configuration Configure Storage\nSelect Volume type as gp3 Select Create template version Create a template version successfully. Details of templates. "
 },
 {
 	"uri": "/8-fo/",
 	"title": "Failing Over",
 	"tags": [],
 	"description": "",
-	"content": "Failing Over   Go to the DRS page\n We will see there are 2 Hostname Choose 1 hostname     Next\n Select Initiate recovery job Select Initiate drill    For Points in time select Use most recent data  Select Initiate drill   Go to DRS interface, select Recovery job history\n View Job log of Hostname web    View Job log of Hostname database.  '\nGo to the EC2 interface. You will see there are two instances of wordpress-db-onpremsim.env and wordpress-db.onpremsim.env  "
+	"content": "Failing Over Go to the DRS page\nWe will see there are 2 Hostname Choose 1 hostname Next\nSelect Initiate recovery job Select Initiate drill For Points in time select Use most recent data Select Initiate drill Go to DRS interface, select Recovery job history\nView Job log of Hostname web View Job log of Hostname database. '\nGo to the EC2 interface. You will see there are two instances of wordpress-db-onpremsim.env and wordpress-db.onpremsim.env "
 },
 {
 	"uri": "/9-cleanup/",
 	"title": "Clean up resources",
 	"tags": [],
 	"description": "",
-	"content": "Clean up resources   Go to CloudFormation\n Select stack Select Delete    Select Delete stack  "
+	"content": "Clean up resources Go to CloudFormation\nSelect stack Select Delete Select Delete stack "
 },
 {
 	"uri": "/categories/",
